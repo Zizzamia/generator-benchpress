@@ -1,0 +1,34 @@
+{
+  "name": "generator-benchpress",
+  "version": "0.1.0",
+  "description": "Benchpress spec generator",
+  "keywords": [
+    "yeoman-generator",
+    "scaffold",
+    "angular"
+  ],
+  "main": "module/index.js",
+  "dependencies": {
+    "yeoman-generator": "^0.17.3",
+    "chalk": "^0.5.1",
+    "wiredep": "^2.2.2",
+    "yosay": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zizzamia/generator-benchpress.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zizzamia/generator-benchpress/issues"
+  },
+  "homepage": "https://github.com/Zizzamia/generator-benchpress",
+  "scripts": {},
+  "maintainers": [
+    {
+      "name": "zizzamia",
+      "email": "leonardo.zizzamia@gmail.com"
+    }
+  ]
+}

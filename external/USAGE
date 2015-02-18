@@ -1,0 +1,8 @@
+Description:
+  Creates a new Angular benchmark
+
+Example:
+  yo ngtasty:benchpress dist
+
+  This will create:
+    benchmarks/...
