@@ -30,5 +30,20 @@
       "name": "zizzamia",
       "email": "leonardo.zizzamia@gmail.com"
     }
-  ]
+  ],
+  "gitHead": "d5a3eb22f39aca07df2728bbdebde4cf0444d832",
+  "_id": "generator-benchpress@0.1.0",
+  "_shasum": "6d433167d03a14f412d2b1adcba600e156c38d79",
+  "_from": "generator-benchpress@",
+  "_npmVersion": "1.4.28",
+  "_npmUser": {
+    "name": "zizzamia",
+    "email": "leonardo.zizzamia@gmail.com"
+  },
+  "dist": {
+    "shasum": "6d433167d03a14f412d2b1adcba600e156c38d79",
+    "tarball": "http://registry.npmjs.org/generator-benchpress/-/generator-benchpress-0.1.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/generator-benchpress/-/generator-benchpress-0.1.0.tgz"
 }
