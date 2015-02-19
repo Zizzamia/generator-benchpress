@@ -15,14 +15,16 @@ Generator.prototype.createBenchmarkFiles = function createBenchmarkFiles() {
   var srcDist = 'version';
   var version = this._.slugify(this.moduleVer.replace(/\./g, '-'));
   this.moduleVerFolder = this.moduleName + '-' + version;
-  var distPath = 'modules/benchmarks_external/' + this.moduleVerFolder;
+  var modulesPath = 'modules/benchmarks_external';
+  var distPathTest = modulesPath + '/e2e_test/' + this.moduleVerFolder;
+  var distPathSrc = modulesPath + '/src/' + this.moduleVerFolder + '/' + this.moduleVerFolder;
 
   bower.commands
   .install([this.name], {}, { 
     'directory': 'benchpress-bower/' + this.moduleVerFolder
   });
  
-  this.template(srcDist + '/benchmark.js', distPath + '/benchmark.js');
-  this.template(srcDist + '/main.html', distPath + '/main.html');
-  this.template(srcDist + '/bp.conf.js', distPath + '/bp.conf.js');
+  this.template(srcDist + '/benchmark.es6', distPathSrc + '_benchmark.es6');
+  this.template(srcDist + '/benchmark.html', distPathSrc + '_benchmark.html');
+  this.template(srcDist + '/perf.es6', distPathTest + '_perf.js');
 };

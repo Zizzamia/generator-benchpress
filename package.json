@@ -1,6 +1,6 @@
 {
   "name": "generator-benchpress",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Benchpress spec generator",
   "keywords": [
     "yeoman-generator",
