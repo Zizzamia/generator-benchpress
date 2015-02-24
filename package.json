@@ -10,7 +10,7 @@
   "main": "module/index.js",
   "dependencies": {
     "yeoman-generator": "^0.17.3",
-    "chalk": "^0.5.1",
+    "chalk": "^1.0.0",
     "wiredep": "^2.2.2",
     "yosay": "^1.0.1"
   },
