@@ -1,6 +1,6 @@
 {
   "name": "generator-benchpress",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Benchpress spec generator",
   "keywords": [
     "yeoman-generator",
@@ -9,6 +9,7 @@
   ],
   "main": "module/index.js",
   "dependencies": {
+    "bower": "^1.3.12",
     "yeoman-generator": "^0.17.3",
     "chalk": "^1.0.0",
     "wiredep": "^2.2.2",
@@ -30,20 +31,5 @@
       "name": "zizzamia",
       "email": "leonardo.zizzamia@gmail.com"
     }
-  ],
-  "gitHead": "d5a3eb22f39aca07df2728bbdebde4cf0444d832",
-  "_id": "generator-benchpress@0.1.0",
-  "_shasum": "6d433167d03a14f412d2b1adcba600e156c38d79",
-  "_from": "generator-benchpress@",
-  "_npmVersion": "1.4.28",
-  "_npmUser": {
-    "name": "zizzamia",
-    "email": "leonardo.zizzamia@gmail.com"
-  },
-  "dist": {
-    "shasum": "6d433167d03a14f412d2b1adcba600e156c38d79",
-    "tarball": "http://registry.npmjs.org/generator-benchpress/-/generator-benchpress-0.1.0.tgz"
-  },
-  "directories": {},
-  "_resolved": "https://registry.npmjs.org/generator-benchpress/-/generator-benchpress-0.1.0.tgz"
+  ]
 }
