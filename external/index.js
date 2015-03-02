@@ -1,5 +1,6 @@
 'use strict';
 var bower = require('bower');
+var fs = require('fs');
 var util = require('util');
 var ScriptBase = require('../script-base.js');
 
@@ -10,21 +11,39 @@ var Generator = module.exports = function Generator() {
 util.inherits(Generator, ScriptBase);
 
 Generator.prototype.createBenchmarkFiles = function createBenchmarkFiles() {
-  this.moduleName = this.name.split('#')[0];
-  this.moduleVer = this.name.split('#')[1];
-  var srcDist = 'version';
-  var version = this._.slugify(this.moduleVer.replace(/\./g, '-'));
-  this.moduleVerFolder = this.moduleName + '-' + version;
-  var modulesPath = 'modules/benchmarks_external';
-  var distPathTest = modulesPath + '/e2e_test/' + this.moduleVerFolder;
-  var distPathSrc = modulesPath + '/src/' + this.moduleVerFolder + '/' + this.moduleVerFolder;
+  var nameModule = this.name;
+  var srcPerfSpec = undefined;
+  if (this.arguments.length > 1) {
+    srcPerfSpec = this.arguments[0];
+    nameModule = this.arguments[1];
+  }
+  if (nameModule.indexOf('#') >= 0) {
+    this.moduleName = nameModule.split('#')[0];
+    this.moduleVer = nameModule.split('#')[1];
+    var version = this._.slugify(this.moduleVer.replace(/\./g, '-'));
+    this.moduleVerFolder = this.moduleName + '-' + version;
+  } else {
+    this.moduleVerFolder = nameModule;
+  }
+  var distPath = 'benchmarks/' + this.moduleVerFolder;
 
+  if (srcPerfSpec) {
+    var srcPath = 'benchmarks/' + srcPerfSpec;
+    if (!fs.existsSync(distPath)){
+      fs.mkdirSync(distPath);
+    }
+    fs.createReadStream(srcPath + '/index.html')
+      .pipe(fs.createWriteStream(distPath + '/index.html'));
+    fs.createReadStream(srcPath + '/benchmark.spec.js')
+      .pipe(fs.createWriteStream(distPath + '/benchmark.spec.js'));
+  } else {
+    this.template('app/protractor.conf.js', 'benchmarks/protractorBenchmarks.conf.js');
+    this.template('app/index.html', distPath + '/index.html');
+    this.template('app/benchmark.spec.js', distPath + '/benchmark.spec.js');
+  }
+  
   bower.commands
-  .install([this.name], {}, { 
-    'directory': 'benchpress-bower/' + this.moduleVerFolder
+  .install([nameModule], {'forceLatest': true}, { 
+    'directory': distPath + '/bower_components'
   });
- 
-  this.template(srcDist + '/benchmark.es6', distPathSrc + '_benchmark.es6');
-  this.template(srcDist + '/benchmark.html', distPathSrc + '_benchmark.html');
-  this.template(srcDist + '/perf.es6', distPathTest + '_perf.js');
 };
