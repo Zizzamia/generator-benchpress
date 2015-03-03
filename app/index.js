@@ -16,4 +16,8 @@ Generator.prototype.createBenchmarkFiles = function createBenchmarkFiles() {
   this.template('app/protractor.conf.js', 'benchmarks/protractorBenchmarks.conf.js');
   this.template('app/index.html', distPath + '/index.html');
   this.template('app/benchmark.spec.js', distPath + '/benchmark.spec.js');
+
+  bower.commands.install(['angular'], {'forceLatest': true}, { 
+    'directory': distPath + '/bower_components'
+  });
 };
